@@ -12,10 +12,11 @@ This is a post with executable code.
 1 + 1
 import stata_setup
 stata_setup.config('/Applications/Stata', 'mp')
+
 ```
 
 
-```{stata}
+```{python}
 %%stata
 sysuse auto, clear
 describe
