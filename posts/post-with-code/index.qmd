@@ -9,23 +9,20 @@ image: "image.jpg"
 This is a post with executable code.
 
 ```{python}
-1 + 1
-<<<<<<< HEAD
+2 + 1
 ```
 
 ```{python}
 import stata_setup
 stata_setup.config('/Applications/Stata', 'mp')
 ```
-
-=======
+```{python}
 import stata_setup
 stata_setup.config('/Applications/Stata', 'mp')
 
 ```
 
 
->>>>>>> 148483becee20562189dc11eb41213bd4a93cb96
 ```{python}
 %%stata
 sysuse auto, clear
