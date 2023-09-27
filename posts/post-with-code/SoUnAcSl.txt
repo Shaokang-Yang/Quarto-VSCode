@@ -1,0 +1,41 @@
+I80 Binary Moderation of Communication Level	
+	(1)
+VARIABLES	addic_noncom
+	
+degree_centrality	-0.947***
+	(0.123)
+core_number	0.050***
+	(0.011)
+active_nodes	-0.088***
+	(0.013)
+out_contacts	-0.027***
+	(0.008)
+num_edges	0.001
+	(0.001)
+steps	-0.004***
+	(0.000)
+minsasleep	-0.002***
+	(0.000)
+trust	-0.084***
+	(0.020)
+close	0.005
+	(0.059)
+position	-0.013***
+	(0.005)
+duration	0.011***
+	(0.004)
+in_com	0.002*
+	(0.001)
+out_com	0.005***
+	(0.001)
+duration2	0.004***
+	(0.001)
+Constant	1.364
+	(1.168)
+	
+Observations	16,260
+Communication	Low
+Unit F.E.	YES
+Week F.E	YES
+Robust standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

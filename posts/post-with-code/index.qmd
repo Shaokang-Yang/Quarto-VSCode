@@ -31,3 +31,26 @@ stata_setup.config('/Applications/Stata', 'mp')
 sysuse auto, clear
 describe
 ```
+```{python}
+%%stata
+clear all
+set maxvar 120000, permanently
+set more off
+
+import delimited "/Users/shaokangyang/Library/CloudStorage/GoogleDrive-shaokang@vt.edu/My Drive/Nethealth/Data/CNSA/combine/SoUnAcSl75.csv"
+gen date2 = date(date, "YMD")
+
+global id egoid
+global t date2
+global ylist addic_noncom
+global mainIV  active_nodes out_contacts  num_edges  steps minsasleep trust close position duration in_com out_com duration2      
+global Social_Control degree_centrality core_number 
+global Other_Control i.insession i.weekday  community  naps nap_minsasleep
+global fe i.studyweek
+*Set data as panel data
+sort $id $t
+xtset $id $t
+
+logistic $ylist $fe  $Other_Control $Social_Control  $mainIV , vce(robust)  
+outreg2 using SoUnAcSl.tex, replace dec(3) addtext(Communication, Low, Unit F.E., YES, Week F.E, YES) keep($mainIV $Social_Control)  title("I80 Binary Moderation of Communication Level")
+```
