@@ -2,6 +2,9 @@
   "listingMap": {
     "index.qmd": [
       "posts"
+    ],
+    "Quarto-VSCode/index.qmd": [
+      "posts"
     ]
   }
 }

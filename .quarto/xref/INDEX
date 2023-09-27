@@ -10,5 +10,17 @@
   },
   "about.qmd": {
     "about.html": "bd016792"
+  },
+  "Quarto-VSCode/posts/post-with-code/index.qmd": {
+    "index.html": "6a523de4"
+  },
+  "Quarto-VSCode/posts/welcome/index.qmd": {
+    "index.html": "49cd1a37"
+  },
+  "Quarto-VSCode/index.qmd": {
+    "index.html": "c3ee3a21"
+  },
+  "Quarto-VSCode/about.qmd": {
+    "about.html": "508807d0"
   }
 }
