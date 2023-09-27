@@ -3,7 +3,16 @@
     "listing": "/index.html",
     "items": [
       "/posts/post-with-code/index.html",
-      "/posts/welcome/index.html"
+      "/Quarto-VSCode/posts/post-with-code/index.html",
+      "/posts/welcome/index.html",
+      "/Quarto-VSCode/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/Quarto-VSCode/index.html",
+    "items": [
+      "/Quarto-VSCode/posts/post-with-code/index.html",
+      "/Quarto-VSCode/posts/welcome/index.html"
     ]
   }
 ]
