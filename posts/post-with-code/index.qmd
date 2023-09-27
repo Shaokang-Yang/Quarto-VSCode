@@ -10,4 +10,14 @@ This is a post with executable code.
 
 ```{python}
 1 + 1
+import stata_setup
+stata_setup.config('/Applications/Stata', 'mp')
+
+```
+
+
+```{python}
+%%stata
+sysuse auto, clear
+describe
 ```
