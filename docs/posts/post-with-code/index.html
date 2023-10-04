@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -183,412 +149,259 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>This is a post with executable code.</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>3</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> stata_setup</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>stata_setup.config(<span class="st">'/Applications/Stata'</span>, <span class="st">'mp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> stata_setup</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>stata_setup.config(<span class="st">'/Applications/Stata'</span>, <span class="st">'mp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>stata</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sysuse auto, clear</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>describe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-. sysuse auto, clear
-(1978 automobile data)
-
-. describe
-
-Contains data from /Applications/Stata/ado/base/a/auto.dta
- Observations:            74                  1978 automobile data
-    Variables:            12                  13 Apr 2022 17:45
-                                              (_dta has notes)
--------------------------------------------------------------------------------
-Variable      Storage   Display    Value
-    name         type    format    label      Variable label
--------------------------------------------------------------------------------
-make            str18   %-18s                 Make and model
-price           int     %8.0gc                Price
-mpg             int     %8.0g                 Mileage (mpg)
-rep78           int     %8.0g                 Repair record 1978
-headroom        float   %6.1f                 Headroom (in.)
-trunk           int     %8.0g                 Trunk space (cu. ft.)
-weight          int     %8.0gc                Weight (lbs.)
-length          int     %8.0g                 Length (in.)
-turn            int     %8.0g                 Turn circle (ft.)
-displacement    int     %8.0g                 Displacement (cu. in.)
-gear_ratio      float   %6.2f                 Gear ratio
-foreign         byte    %8.0g      origin     Car origin
--------------------------------------------------------------------------------
-Sorted by: foreign
-
-. </code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>stata</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>clear <span class="bu">all</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> maxvar <span class="dv">120000</span>, permanently</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> more off</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> delimited <span class="st">"/Users/shaokangyang/Library/CloudStorage/GoogleDrive-shaokang@vt.edu/My Drive/Nethealth/Data/CNSA/combine/SoUnAcSl75.csv"</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>gen date2 <span class="op">=</span> date(date, <span class="st">"YMD"</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> <span class="bu">id</span> egoid</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> t date2</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> ylist addic_noncom</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> mainIV  active_nodes out_contacts  num_edges  steps minsasleep trust close position duration in_com out_com duration2      </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> Social_Control degree_centrality core_number </span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> Other_Control i.insession i.weekday  community  naps nap_minsasleep</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">global</span> fe i.studyweek</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>Set data <span class="im">as</span> panel data</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>sort $id $t</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>xtset $id $t</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>logistic $ylist $fe  $Other_Control $Social_Control  $mainIV , vce(robust)  </span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>outreg2 using SoUnAcSl.tex, replace dec(<span class="dv">3</span>) addtext(Communication, Low, Unit F.E., YES, Week F.E, YES) keep($mainIV $Social_Control)  title(<span class="st">"I80 Binary Moderation of Communication Level"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-. clear all
-
-. set maxvar 120000, permanently
-(set maxvar preference recorded)
-
-
-. set more off
-
-. 
-. import delimited "/Users/shaokangyang/Library/CloudStorage/GoogleDrive-shaoka
-&gt; ng@vt.edu/My Drive/Nethealth/Data/CNSA/combine/SoUnAcSl75.csv"
-(encoding automatically selected: ISO-8859-1)
-(185 vars, 16,366 obs)
-
-. gen date2 = date(date, "YMD")
-
-. 
-. global id egoid
-
-. global t date2
-
-. global ylist addic_noncom
-
-. global mainIV  active_nodes out_contacts  num_edges  steps minsasleep trust c
-&gt; lose position duration in_com out_com duration2      
-
-. global Social_Control degree_centrality core_number 
-
-. global Other_Control i.insession i.weekday  community  naps nap_minsasleep
-
-. global fe i.studyweek
-
-. *Set data as panel data
-. sort $id $t
-
-. xtset $id $t
-
-Panel variable: egoid (unbalanced)
- Time variable: date2, 20327 to 21684, but with gaps
-         Delta: 1 unit
-
-. 
-. logistic $ylist $fe  $Other_Control $Social_Control  $mainIV , vce(robust)  
-note: 4.studyweek != 0 predicts failure perfectly;
-      4.studyweek omitted and 5 obs not used.
-
-note: 174.studyweek != 0 predicts failure perfectly;
-      174.studyweek omitted and 16 obs not used.
-
-note: 175.studyweek != 0 predicts failure perfectly;
-      175.studyweek omitted and 6 obs not used.
-
-note: 178.studyweek != 0 predicts failure perfectly;
-      178.studyweek omitted and 16 obs not used.
-
-note: 181.studyweek != 0 predicts failure perfectly;
-      181.studyweek omitted and 9 obs not used.
-
-note: 182.studyweek != 0 predicts failure perfectly;
-      182.studyweek omitted and 7 obs not used.
-
-note: 185.studyweek != 0 predicts failure perfectly;
-      185.studyweek omitted and 14 obs not used.
-
-note: 188.studyweek != 0 predicts failure perfectly;
-      188.studyweek omitted and 7 obs not used.
-
-note: 189.studyweek != 0 predicts failure perfectly;
-      189.studyweek omitted and 5 obs not used.
-
-note: 190.studyweek != 0 predicts failure perfectly;
-      190.studyweek omitted and 5 obs not used.
-
-note: 191.studyweek != 0 predicts failure perfectly;
-      191.studyweek omitted and 7 obs not used.
-
-note: 193.studyweek != 0 predicts failure perfectly;
-      193.studyweek omitted and 3 obs not used.
-
-note: 194.studyweek != 0 predicts failure perfectly;
-      194.studyweek omitted and 6 obs not used.
-
-note: 198.studyweek omitted because of collinearity.
-note: 1.insession omitted because of collinearity.
-
-Logistic regression                                    Number of obs  = 16,260
-                                                       Wald chi2(204) = 804.54
-                                                       Prob &gt; chi2    = 0.0000
-Log pseudolikelihood = -8761.6558                      Pseudo R2      = 0.0479
-
-------------------------------------------------------------------------------
-             |               Robust
-addic_noncom | Odds ratio   std. err.      z    P&gt;|z|     [95% conf. interval]
--------------+----------------------------------------------------------------
-   studyweek |
-          4  |          1  (empty)
-          5  |   .1291174   .1749219    -1.51   0.131     .0090744    1.837174
-          6  |   .1093885   .1411352    -1.72   0.086     .0087244    1.371541
-          7  |   .2241577   .2706013    -1.24   0.215     .0210373    2.388454
-          8  |   .4726517   .5589699    -0.63   0.526     .0465467    4.799475
-          9  |   .0545971   .0832631    -1.91   0.057     .0027482    1.084652
-         10  |   .2315069   .2795367    -1.21   0.226     .0217154    2.468088
-         11  |   .5663012   .6612115    -0.49   0.626     .0574364    5.583515
-         12  |   .6238984    .728756    -0.40   0.686     .0632197    6.157089
-         13  |   .4340386   .5075455    -0.71   0.475     .0438704    4.294233
-         14  |   .5956103   .6917579    -0.45   0.655      .061144    5.801907
-         15  |   .4348041   .5065308    -0.71   0.475     .0443277    4.264932
-         16  |   .9297327   1.070791    -0.06   0.950     .0972776    8.885942
-         17  |    .892937   1.030292    -0.10   0.922     .0930431     8.56954
-         18  |   .7019262   .8120178    -0.31   0.760     .0727086    6.776372
-         19  |   1.017557   1.174207     0.02   0.988     .1060028    9.767877
-         20  |   .7897353   .9117069    -0.20   0.838     .0821893     7.58836
-         21  |   .4229009   .4980898    -0.73   0.465     .0420435    4.253809
-         22  |   .4713135   .5514098    -0.64   0.520     .0475831    4.668388
-         23  |   .2963978   .3485448    -1.03   0.301     .0295744    2.970527
-         24  |   .8496331    .982444    -0.14   0.888     .0880996     8.19387
-         25  |   .7844455   .9053888    -0.21   0.833     .0816819    7.533554
-         26  |   .7012217   .8117633    -0.31   0.759     .0725219    6.780185
-         27  |   .8274452   .9598513    -0.16   0.870     .0851785    8.038007
-         28  |   .7769383   .8994141    -0.22   0.827     .0803531    7.512261
-         29  |   .7503638   .8718306    -0.25   0.805     .0769627    7.315829
-         30  |   .4530586   .5405877    -0.66   0.507     .0437023    4.696829
-         31  |   1.039626   1.221681     0.03   0.974     .1039005    10.40248
-         32  |   .6843824   .8056494    -0.32   0.747     .0681195     6.87585
-         33  |   .8168417   .9497952    -0.17   0.862     .0836354    7.977845
-         34  |   .6829213   .7949886    -0.33   0.743     .0697408    6.687353
-         35  |   .8389904   .9749834    -0.15   0.880     .0860168    8.183345
-         36  |   .5341054    .623829    -0.54   0.591     .0541294    5.270121
-         37  |   .3436319   .4070555    -0.90   0.367     .0337122    3.502676
-         38  |   .3610981    .426845    -0.86   0.389     .0355993    3.662766
-         39  |   .7279748   .8472805    -0.27   0.785     .0743728    7.125557
-         40  |   1.016414   1.173418     0.01   0.989     .1057755    9.766881
-         41  |     1.0376   1.204656     0.03   0.975     .1066062    10.09897
-         42  |   .6314097   .7369098    -0.39   0.694      .064104    6.219237
-         43  |   1.010436   1.175647     0.01   0.993     .1033074    9.882936
-         44  |   .6056538   .7085235    -0.43   0.668     .0611572    5.997934
-         45  |   .9661809   1.127284    -0.03   0.976     .0981579    9.510239
-         46  |   .6780754   .7957458    -0.33   0.741     .0679771    6.763843
-         47  |   .7183926   .8383554    -0.28   0.777     .0729491    7.074628
-         48  |   .7778236   .9066829    -0.22   0.829     .0791889    7.640085
-         49  |   .8385866   .9710051    -0.15   0.879     .0866834    8.112597
-         50  |   1.050405   1.215496     0.04   0.966     .1087358    10.14707
-         51  |   1.228107   1.417285     0.18   0.859     .1279134    11.79116
-         52  |   .7966971   .9198105    -0.20   0.844     .0829002    7.656509
-         53  |   .9750639   1.124299    -0.02   0.983     .1017545    9.343565
-         54  |   1.144651   1.321513     0.12   0.907     .1191106    11.00007
-         55  |   .9636436   1.113005    -0.03   0.974     .1001801    9.269398
-         56  |   .7958832   .9164999    -0.20   0.843     .0833005    7.604158
-         57  |    .794493   .9154696    -0.20   0.842      .083038    7.601567
-         58  |   .7184225   .8288186    -0.29   0.774     .0748822    6.892567
-         59  |   .8264369   .9528339    -0.17   0.869     .0862628     7.91764
-         60  |   .9662868   1.112922    -0.03   0.976     .1010959    9.235889
-         61  |   .8629787   .9946894    -0.13   0.898     .0901333    8.262563
-         62  |   1.073742   1.235399     0.06   0.951     .1126018    10.23892
-         63  |   1.202032   1.382949     0.16   0.873      .126067    11.46123
-         64  |   .8870333   1.024044    -0.10   0.917     .0923129    8.523492
-         65  |   .8670435   1.000441    -0.12   0.902     .0903397    8.321526
-         66  |   .9201061   1.061104    -0.07   0.942     .0959836    8.820204
-         67  |   .6705727   .7751522    -0.35   0.730     .0695817    6.462447
-         68  |   .9105646   1.051938    -0.08   0.935     .0946134    8.763325
-         69  |   .7562056    .874198    -0.24   0.809     .0784555    7.288804
-         70  |   1.074479   1.241599     0.06   0.950     .1115846    10.34646
-         71  |   .9941003   1.146083    -0.01   0.996      .103775    9.522868
-         72  |   .9824259   1.132428    -0.02   0.988     .1025963    9.407359
-         73  |   .7339189   .8538826    -0.27   0.790     .0750433    7.177678
-         74  |   .7627756   .8895298    -0.23   0.816     .0775795    7.499749
-         75  |   .6631791   .7733199    -0.35   0.725     .0674624    6.519285
-         76  |   .8910394   1.032495    -0.10   0.921     .0919527    8.634346
-         77  |   .9893653   1.143731    -0.01   0.993      .102647     9.53602
-         78  |   .9968661   1.151544    -0.00   0.998     .1035998    9.592118
-         79  |   .7184119   .8294533    -0.29   0.775     .0747491     6.90464
-         80  |   .6447877   .7450981    -0.38   0.704     .0669565    6.209272
-         81  |   .9106501   1.050491    -0.08   0.935     .0949375    8.735049
-         82  |   .6854093   .7928574    -0.33   0.744     .0710084    6.615916
-         83  |   .4555325    .532267    -0.67   0.501     .0461246    4.498895
-         84  |   .4648702   .5419882    -0.66   0.511     .0473067     4.56815
-         85  |   .7635787    .890112    -0.23   0.817     .0777319    7.500818
-         86  |   1.021002   1.181187     0.02   0.986       .10575    9.857638
-         87  |   .9944045   1.151886    -0.00   0.996     .1026972    9.628702
-         88  |   .6770644   .7847338    -0.34   0.737      .069834    6.564368
-         89  |   .9440966   1.098688    -0.05   0.961     .0964793    9.238438
-         90  |    .600946   .7039075    -0.43   0.664     .0605056    5.968639
-         91  |   1.005437   1.165599     0.00   0.996     .1036477     9.75326
-         92  |   .5906119   .6896639    -0.45   0.652     .0598887    5.824511
-         93  |   1.639017   1.898333     0.43   0.670     .1693206    15.86562
-         94  |   .9320732   1.087909    -0.06   0.952     .0946093    9.182611
-         95  |   .7986397    .936474    -0.19   0.848     .0802128    7.951666
-         96  |   .7596242   .8915263    -0.23   0.815     .0761366    7.578863
-         97  |   .8017217   .9351818    -0.19   0.850     .0814939    7.887185
-         98  |   .5356987   .6284565    -0.53   0.595     .0537441    5.339617
-         99  |   .3787746   .4487497    -0.82   0.413     .0371474    3.862192
-        100  |   .5324461   .6294068    -0.53   0.594     .0524888    5.401131
-        101  |   .6306417   .7417979    -0.39   0.695     .0628853    6.324352
-        102  |   .4922737   .5923708    -0.59   0.556     .0465506    5.205811
-        103  |   .8465351   1.011963    -0.14   0.889     .0813024    8.814276
-        104  |   .5874272   .6970511    -0.45   0.654     .0573989    6.011796
-        105  |   .7919022   .9439849    -0.20   0.845     .0765595    8.191135
-        106  |   .5730798   .6971338    -0.46   0.647     .0528147    6.218354
-        107  |    .777988    .951433    -0.21   0.837     .0707952     8.54952
-        108  |   .6329497   .7538958    -0.38   0.701      .061308    6.534632
-        109  |    .932096   1.083554    -0.06   0.952     .0954873    9.098622
-        110  |   .7687716    .893408    -0.23   0.821     .0788126    7.498927
-        111  |   .6235833   .7273455    -0.40   0.686     .0633951     6.13385
-        112  |   .8515431   .9904818    -0.14   0.890     .0871208    8.323216
-        113  |   .6184248   .7225564    -0.41   0.681     .0626265    6.106825
-        114  |   .5680941    .664605    -0.48   0.629     .0573604    5.626374
-        115  |   .5999005   .7007544    -0.44   0.662     .0607821    5.920833
-        116  |   1.280934   1.494341     0.21   0.832     .1301705    12.60494
-        117  |   1.392064   1.618738     0.28   0.776     .1425127    13.59768
-        118  |   .5079611   .5992833    -0.57   0.566     .0503035    5.129354
-        119  |    .590082   .6950905    -0.45   0.654     .0586455    5.937316
-        120  |   .8126183   .9466198    -0.18   0.859     .0828555    7.969884
-        121  |   1.092199   1.268141     0.08   0.939     .1121967    10.63221
-        122  |    .736573   .8611199    -0.26   0.794     .0744877    7.283611
-        123  |    .465878   .5470009    -0.65   0.515       .04665    4.652567
-        124  |   .9620775    1.11478    -0.03   0.973     .0992897     9.32215
-        125  |   .9655372   1.123917    -0.03   0.976     .0986148    9.453572
-        126  |   .8834204    1.02997    -0.11   0.915     .0899002    8.681087
-        127  |   1.192851   1.393666     0.15   0.880     .1208052    11.77841
-        128  |   .8392737   .9835942    -0.15   0.881     .0843977    8.345968
-        129  |    .591525   .6943064    -0.45   0.655     .0592747    5.903051
-        130  |   .8922994   1.039429    -0.10   0.922     .0909822    8.751144
-        131  |    .740823   .8610695    -0.26   0.796      .075919    7.229006
-        132  |    .702425   .8180316    -0.30   0.762     .0716648    6.884844
-        133  |   .7665775   .8913507    -0.23   0.819     .0784887    7.486947
-        134  |   .6148492   .7250877    -0.41   0.680      .060947    6.202762
-        135  |    1.10811   1.288184     0.09   0.930     .1135159    10.81705
-        136  |   1.162105   1.349448     0.13   0.897     .1193496    11.31539
-        137  |   .5178791   .6111783    -0.56   0.577     .0512481    5.233344
-        138  |   1.038058   1.211004     0.03   0.974     .1054886    10.21499
-        139  |   .8382458   .9840271    -0.15   0.881     .0839722    8.367726
-        140  |   .8397636   .9784225    -0.15   0.881      .085587    8.239599
-        141  |   .6146085   .7182639    -0.42   0.677      .062207    6.072361
-        142  |   1.140798   1.330975     0.11   0.910     .1159064     11.2282
-        143  |   1.122267   1.306373     0.10   0.921      .114619    10.98844
-        144  |   .5809237   .6894555    -0.46   0.647     .0567402    5.947677
-        145  |   .5239411   .6211289    -0.55   0.586     .0513084     5.35028
-        146  |   1.238663   1.465635     0.18   0.856     .1218367    12.59297
-        147  |   1.657924   1.953198     0.43   0.668     .1647273    16.68645
-        148  |   .6669278    .796068    -0.34   0.734      .064277     6.91994
-        149  |   .8245717   .9842632    -0.16   0.872     .0794654    8.556159
-        150  |   .8407066   1.002027    -0.15   0.884     .0813034    8.693215
-        151  |   .3613864   .4380645    -0.84   0.401     .0335865    3.888476
-        152  |   1.062726   1.249648     0.05   0.959     .1060478    10.64978
-        153  |    1.02886   1.218206     0.02   0.981     .1010426    10.47631
-        154  |   .7194239   .8708366    -0.27   0.786     .0670867    7.714958
-        155  |   1.662945   1.980681     0.43   0.669     .1610791    17.16788
-        156  |   .8349371   .9866748    -0.15   0.879      .082368    8.463477
-        157  |   .5785992   .6870748    -0.46   0.645     .0564408    5.931469
-        158  |   .4299463   .5245507    -0.69   0.489     .0393474    4.697993
-        159  |    .956382   1.136792    -0.04   0.970     .0930809    9.826576
-        160  |   1.091863   1.289483     0.07   0.941     .1078711    11.05177
-        161  |   .8471301   1.017331    -0.14   0.890     .0804877    8.916015
-        162  |   .5546218   .6859622    -0.48   0.634     .0491159    6.262852
-        163  |   .8043992    .967838    -0.18   0.856      .076089    8.503962
-        164  |   .5774097   .6897822    -0.46   0.646     .0555426    6.002637
-        165  |   .5092085   .6167966    -0.56   0.577     .0474076    5.469445
-        166  |   1.023602   1.208019     0.02   0.984     .1012914    10.34403
-        167  |   .6982847   .8377673    -0.30   0.765     .0664972    7.332665
-        168  |   1.467729   1.819342     0.31   0.757      .129279     16.6634
-        169  |   1.038642   1.229311     0.03   0.974      .102095     10.5664
-        170  |   .4690958   .5809602    -0.61   0.541     .0414072    5.314318
-        171  |   1.091999    1.38512     0.07   0.945     .0908942    13.11923
-        172  |   1.102641   1.445138     0.07   0.941     .0844962    14.38902
-        173  |   .2409058   .3765172    -0.91   0.362     .0112586    5.154776
-        174  |          1  (empty)
-        175  |          1  (empty)
-        176  |   1.023517   1.341567     0.02   0.986     .0784131    13.35984
-        177  |   .4856331   .7750551    -0.45   0.651     .0212724    11.08662
-        178  |          1  (empty)
-        179  |   .4997223   .6506063    -0.53   0.594      .038951    6.411187
-        180  |   .5409531   .8395693    -0.40   0.692     .0258273    11.33027
-        181  |          1  (empty)
-        182  |          1  (empty)
-        183  |   1.665271   2.077954     0.41   0.683     .1443247     19.2145
-        184  |    .703407   .9275939    -0.27   0.790     .0530535     9.32609
-        185  |          1  (empty)
-        186  |   .4636026   .6362261    -0.56   0.575     .0314773    6.828012
-        187  |   .2387572   .3720193    -0.92   0.358     .0112631    5.061223
-        188  |          1  (empty)
-        189  |          1  (empty)
-        190  |          1  (empty)
-        191  |          1  (empty)
-        192  |    .735988   1.042151    -0.22   0.829     .0458753    11.80763
-        193  |          1  (empty)
-        194  |          1  (empty)
-        195  |   .7205721   1.016865    -0.23   0.816     .0453387    11.45212
-        196  |   1.755043     2.7059     0.36   0.715     .0854905    36.02946
-        197  |   3.602397   4.892482     0.94   0.345      .251512    51.59698
-        198  |          1  (omitted)
-             |
- 1.insession |          1  (omitted)
-             |
-     weekday |
-          1  |   1.021974   .0705841     0.31   0.753     .8925864    1.170117
-          2  |   .9837104   .0685711    -0.24   0.814     .8580902    1.127721
-          3  |   1.000238   .0698154     0.00   0.997       .87235    1.146876
-          4  |   1.034785   .0719242     0.49   0.623     .9029969    1.185808
-          5  |   1.001194   .0715239     0.02   0.987     .8703815    1.151667
-          6  |   1.100172   .0777087     1.35   0.177     .9579384    1.263525
-             |
-   community |   1.073156   .0517411     1.46   0.143      .976389    1.179513
-        naps |   1.033991   .1303278     0.27   0.791       .80766    1.323748
-nap_minsas~p |   1.000694    .001002     0.69   0.488     .9987324     1.00266
-degree_cen~y |   .3880088   .0475809    -7.72   0.000     .3051126    .4934271
- core_number |   1.051618    .011792     4.49   0.000     1.028759    1.074986
-active_nodes |   .9158643   .0121249    -6.64   0.000     .8924057    .9399396
-out_contacts |   .9729246    .008126    -3.29   0.001     .9571276    .9889822
-   num_edges |   1.001056   .0006601     1.60   0.110     .9997626     1.00235
-       steps |   .9959682   .0003817   -10.54   0.000     .9952204    .9967165
-  minsasleep |    .998211   .0002004    -8.92   0.000     .9978182    .9986038
-       trust |   .9197641   .0184852    -4.16   0.000      .884238    .9567175
-       close |   1.004712   .0590211     0.08   0.936     .8954435    1.127313
-    position |   .9872253   .0045935    -2.76   0.006      .978263    .9962696
-    duration |    1.01063   .0036636     2.92   0.004     1.003475    1.017836
-      in_com |     1.0019   .0009864     1.93   0.054     .9999687    1.003835
-     out_com |   1.004813   .0006404     7.53   0.000     1.003558    1.006069
-   duration2 |   1.003629   .0010067     3.61   0.000     1.001658    1.005604
-       _cons |   3.912189   4.568137     1.17   0.243     .3967338    38.57807
-------------------------------------------------------------------------------
-Note: _cons estimates baseline odds.
-
-. outreg2 using SoUnAcSl.tex, replace dec(3) addtext(Communication, Low, Unit F
-&gt; .E., YES, Week F.E, YES) keep($mainIV $Social_Control)  title("I80 Binary Mod
-&gt; eration of Communication Level")
-SoUnAcSl.tex
-dir : seeout
-
-. </code></pre>
-</div>
-</div>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>(1)</th>
+<th>(2)</th>
+<th>(3)</th>
+<th>(4)</th>
+<th>(5)</th>
+<th>(6)</th>
+<th>(7)</th>
+<th>(8)</th>
+<th>(9)</th>
+<th>(10)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VARIABLES</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+<td>sleep_duration</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>call</td>
+<td>-9.116***</td>
+<td>-6.043***</td>
+<td>-4.172***</td>
+<td>-3.578***</td>
+<td>-2.808***</td>
+<td>-2.441***</td>
+<td>-4.013***</td>
+<td>-1.670***</td>
+<td>-1.413***</td>
+<td>-1.114***</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(1.219)</td>
+<td>(0.854)</td>
+<td>(0.655)</td>
+<td>(0.501)</td>
+<td>(0.390)</td>
+<td>(0.306)</td>
+<td>(0.652)</td>
+<td>(0.241)</td>
+<td>(0.216)</td>
+<td>(0.189)</td>
+</tr>
+<tr class="odd">
+<td>message_q</td>
+<td>-1.197***</td>
+<td>-1.288***</td>
+<td>-1.296***</td>
+<td>-1.207***</td>
+<td>-0.954***</td>
+<td>-0.744***</td>
+<td>-1.294***</td>
+<td>-0.485***</td>
+<td>-0.318**</td>
+<td>-0.230</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.127)</td>
+<td>(0.134)</td>
+<td>(0.138)</td>
+<td>(0.143)</td>
+<td>(0.147)</td>
+<td>(0.151)</td>
+<td>(0.140)</td>
+<td>(0.157)</td>
+<td>(0.162)</td>
+<td>(0.170)</td>
+</tr>
+<tr class="odd">
+<td>unlock</td>
+<td>-1.995***</td>
+<td>-0.920***</td>
+<td>-0.578***</td>
+<td>-0.389***</td>
+<td>-0.220***</td>
+<td>-0.134***</td>
+<td>-0.091***</td>
+<td>-0.074***</td>
+<td>-0.057***</td>
+<td>-0.045***</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.200)</td>
+<td>(0.093)</td>
+<td>(0.061)</td>
+<td>(0.045)</td>
+<td>(0.028)</td>
+<td>(0.021)</td>
+<td>(0.017)</td>
+<td>(0.015)</td>
+<td>(0.013)</td>
+<td>(0.012)</td>
+</tr>
+<tr class="odd">
+<td>unlock_time</td>
+<td>1.385***</td>
+<td>0.682***</td>
+<td>0.426***</td>
+<td>0.291***</td>
+<td>0.169***</td>
+<td>0.109***</td>
+<td>0.074***</td>
+<td>0.056***</td>
+<td>0.042***</td>
+<td>0.035***</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(0.056)</td>
+<td>(0.030)</td>
+<td>(0.020)</td>
+<td>(0.015)</td>
+<td>(0.009)</td>
+<td>(0.007)</td>
+<td>(0.006)</td>
+<td>(0.005)</td>
+<td>(0.004)</td>
+<td>(0.004)</td>
+</tr>
+<tr class="odd">
+<td>Constant</td>
+<td>392.837***</td>
+<td>390.634***</td>
+<td>383.919***</td>
+<td>391.032***</td>
+<td>391.854***</td>
+<td>390.281***</td>
+<td>394.368***</td>
+<td>386.860***</td>
+<td>369.686***</td>
+<td>368.335***</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(50.188)</td>
+<td>(49.890)</td>
+<td>(49.885)</td>
+<td>(49.827)</td>
+<td>(49.951)</td>
+<td>(50.071)</td>
+<td>(50.230)</td>
+<td>(50.271)</td>
+<td>(49.916)</td>
+<td>(49.843)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Observations</td>
+<td>133,162</td>
+<td>133,116</td>
+<td>132,329</td>
+<td>133,059</td>
+<td>132,996</td>
+<td>132,984</td>
+<td>132,969</td>
+<td>132,951</td>
+<td>133,192</td>
+<td>133,181</td>
+</tr>
+<tr class="odd">
+<td>R-squared</td>
+<td>0.308</td>
+<td>0.307</td>
+<td>0.304</td>
+<td>0.302</td>
+<td>0.300</td>
+<td>0.298</td>
+<td>0.298</td>
+<td>0.297</td>
+<td>0.296</td>
+<td>0.296</td>
+</tr>
+<tr class="even">
+<td>Number of egoid</td>
+<td>509</td>
+<td>509</td>
+<td>504</td>
+<td>509</td>
+<td>509</td>
+<td>509</td>
+<td>509</td>
+<td>509</td>
+<td>509</td>
+<td>509</td>
+</tr>
+<tr class="odd">
+<td>Measure Window</td>
+<td>0.5hrs</td>
+<td>1hrs</td>
+<td>1.5hrs</td>
+<td>2hrs</td>
+<td>3hrs</td>
+<td>4hrs</td>
+<td>5hrs</td>
+<td>6hrs</td>
+<td>7hrs</td>
+<td>8hrs</td>
+</tr>
+</tbody>
+</table>
 
 
 
