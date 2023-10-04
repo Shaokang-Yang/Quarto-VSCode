@@ -3,7 +3,8 @@
     "index.html": "172b0e83"
   },
   "posts/post-with-code/index.qmd": {
-    "index.html": "5e472e6d"
+    "index.html": "5e472e6d",
+    "index.tex": "a07cd67f"
   },
   "posts/welcome/index.qmd": {
     "index.html": "7847b01a"

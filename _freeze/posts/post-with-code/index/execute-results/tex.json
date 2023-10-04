@@ -1,0 +1,10 @@
+{
+  "hash": "b9c27dbfdae96abe761ffa3e3c370745",
+  "result": {
+    "markdown": "---\ntitle: \"Post With Code\"\nauthor: \"Harlow Malloc\"\ndate: \"2023-09-25\"\ncategories: [news, code, analysis]\nimage: \"image.jpg\"\n\n\n---\n\nThis is a post with executable code.\n\n::: {.cell execution_count=1}\n``` {.python .cell-code}\n2 + 1\n```\n\n::: {.cell-output .cell-output-display execution_count=7}\n```\n3\n```\n:::\n:::\n\n\n::: {.cell execution_count=2}\n``` {.python .cell-code}\nimport stata_setup\nstata_setup.config('/Applications/Stata', 'mp')\n```\n:::\n\n\n::: {.cell execution_count=3}\n``` {.python .cell-code}\nimport stata_setup\nstata_setup.config('/Applications/Stata', 'mp')\n```\n:::\n\n\n```{=latex}\n\\begin{table}[]\n\\begin{tabular}{@{}ll@{}}\n\\toprule\nHeader 1 & Header 2 \\\\ \\midrule\nA        & B        \\\\\nC        & C       \n\\end{tabular}\n\\end{table}\n\n```\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": []
+  }
+}
