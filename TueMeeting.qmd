@@ -1,0 +1,58 @@
+---
+title: "Tuesday Meeting"
+author: "Shaokang Yang"
+format: revealjs
+editor: visual
+---
+
+# Getting up
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+## Going to sleep
+
+:::: {.columns}
+
+::: {.column width="40%"}
+contents...
+:::
+
+::: {.column width="60%"}
+contents...
+:::
+
+::::
+
+```{.python code-line-numbers="15f"}
+global id egoid
+global t date2
+global ylist sleep_duration
+global mainIV icall call c.call##icall
+global Comm_Control unlock message  bytes
+global Fitness_Control steps100 floors meanrate calorie_sum sedentaryminutes lightlyactiveminutes fairlyactiveminutes veryactiveminutes 
+global Other_Control  naps naps_dur light_exposure   i.insession i.weekday i.time_wakeuphour
+
+global fe i.studyweeks
+
+*Set data as panel data
+sort $id $t
+xtset $id $t
+
+xtreg $ylist $fe  $Other_Control $Fitness_Control  $mainIV, fe robust
+outreg2 using screen.tex, append dec(3) addtext(Sleep Control, NO) keep($mainIV) title("Impact of Call and Social Closeness On Sleep")
+```

@@ -26,5 +26,40 @@
     "title": "About",
     "section": "",
     "text": "About this blog"
+  },
+  {
+    "objectID": "TueMeeting.html#going-to-sleep",
+    "href": "TueMeeting.html#going-to-sleep",
+    "title": "Tuesday Meeting",
+    "section": "Going to sleep",
+    "text": "Going to sleep\n\n\ncontents…\n\ncontents…\n\n\nglobal id egoid\nglobal t date2\nglobal ylist sleep_duration\nglobal mainIV icall call c.call##icall\nglobal Comm_Control unlock message  bytes\nglobal Fitness_Control steps100 floors meanrate calorie_sum sedentaryminutes lightlyactiveminutes fairlyactiveminutes veryactiveminutes \nglobal Other_Control  naps naps_dur light_exposure   i.insession i.weekday i.time_wakeuphour\n\nglobal fe i.studyweeks\n\n*Set data as panel data\nsort $id $t\nxtset $id $t\n\nxtreg $ylist $fe  $Other_Control $Fitness_Control  $mainIV, fe robust\noutreg2 using screen.tex, append dec(3) addtext(Sleep Control, NO) keep($mainIV) title(\"Impact of Call and Social Closeness On Sleep\")"
+  },
+  {
+    "objectID": "TueMeeting.html#getting-up",
+    "href": "TueMeeting.html#getting-up",
+    "title": "Tuesday Meeting",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
+  },
+  {
+    "objectID": "TueMeeting.html#breakfast",
+    "href": "TueMeeting.html#breakfast",
+    "title": "Tuesday Meeting",
+    "section": "Breakfast",
+    "text": "Breakfast\n\nEat eggs\nDrink coffee"
+  },
+  {
+    "objectID": "TueMeeting.html#dinner",
+    "href": "TueMeeting.html#dinner",
+    "title": "Tuesday Meeting",
+    "section": "Dinner",
+    "text": "Dinner\n\nEat spaghetti\nDrink wine"
+  },
+  {
+    "objectID": "TueMeeting.html#getting-up-1",
+    "href": "TueMeeting.html#getting-up-1",
+    "title": "Tuesday Meeting",
+    "section": "Getting up",
+    "text": "Getting up\n\nTurn off alarm\nGet out of bed"
   }
 ]
