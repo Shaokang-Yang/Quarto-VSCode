@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Quarto VSCode",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nML 3rd Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nSep 22, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nSep 22, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Post With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 25, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nthird\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nSep 22, 2023\n\n\nShaokang Yang\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nSep 22, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -72,8 +72,8 @@
   {
     "objectID": "posts/third/index.html",
     "href": "posts/third/index.html",
-    "title": "ML 3rd Blog",
+    "title": "third",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\n1+1"
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\n\n1+1\n\n2\n\n\n\nimport time;import pandas as pd;import numpy as np ;import datetime\nfrom datetime import datetime;from datetime import timedelta\nimport sqlite3\nSEDD = pd.read_csv(\"/Users/shaokangyang/Library/CloudStorage/GoogleDrive-shaokang@vt.edu/My Drive/NetHCUP/Data/FL_SEDD_2020_CORE.csv\")\n\n\nimport plotly.express as px;import requests\n# Download the GeoJSON file\nurl = 'https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json'\ncounties_geojson = requests.get(url).json()\n# Load your dataset\ndf = SEDD\n# Convert FIPS codes to strings, remove decimal points, and format as 5-digit codes\ndf['PSTCO'] = df['PSTCO'].astype(str)\ndf['PSTCO'] = df['PSTCO'].apply(lambda x: x.split('.')[0])  # Remove decimal point\ndf['PSTCO'] = df['PSTCO'].apply(lambda x: x.zfill(5))       # Ensure 5 digits\n# Count observations per FIPS code\nobservation_counts = df['PSTCO'].value_counts().reset_index()\nobservation_counts.columns = ['PSTCO', 'Observations']\n# Create the choropleth map\nfig = px.choropleth_mapbox(observation_counts, \n                           geojson=counties_geojson, \n                           locations='PSTCO', \n                           color='Observations',\n                           color_continuous_scale=px.colors.sequential.Blues, # Sequential color scale\n                           mapbox_style=\"carto-positron\",\n                           zoom=5, center = {\"lat\": 27.9944024, \"lon\": -81.7602544},  # Coordinates for Florida\n                           opacity=0.5)\nfig.update_layout(margin={\"r\":0,\"t\":0,\"l\":0,\"b\":0})\n# Adjust the figure size\nfig.update_layout(width=1000, height=600)\n# Show the figure\nfig.show()\n\n\n                                                \n\n\n\nimport matplotlib.pyplot as plt\nplt.plot([1,2,3,4])\nplt.show()"
   }
 ]
